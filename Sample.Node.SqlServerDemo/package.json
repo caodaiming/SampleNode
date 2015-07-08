@@ -6,5 +6,8 @@
   "author": {
     "name": "caoda_000",
     "email": ""
+  },
+  "dependencies": {
+    "tedious": "^1.11.2"
   }
 }
