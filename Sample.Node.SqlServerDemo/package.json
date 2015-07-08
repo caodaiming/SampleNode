@@ -4,8 +4,8 @@
   "description": "Sample.Node.SqlServerDemo",
   "main": "app.js",
   "author": {
-    "name": "caoda_000",
-    "email": ""
+    "name": "james.cao",
+    "email": "gmawaje@sohu.com"
   },
   "dependencies": {
     "tedious": "^1.11.2"
