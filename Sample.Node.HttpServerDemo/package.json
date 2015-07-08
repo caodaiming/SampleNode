@@ -1,0 +1,10 @@
+{
+  "name": "Sample.Node.HttpServerDemo",
+  "version": "0.0.0",
+  "description": "Sample.Node.HttpServerDemo",
+  "main": "app.js",
+  "author": {
+    "name": "caoda_000",
+    "email": ""
+  }
+}

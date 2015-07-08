@@ -79,4 +79,5 @@ $RECYCLE.BIN/
 *.dat
 *.txt
 *.cache
+*.suo
 bin
