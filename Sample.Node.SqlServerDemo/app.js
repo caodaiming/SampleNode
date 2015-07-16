@@ -6,17 +6,24 @@ var config = {
     password: 'cao',
     options: {
         encrypt: true,
-        database:'Vwallet'
+        database: 'Vwallet'
     }
 }
 
 var connection = new Connection(config);
-connection.on('connect', function (err) { 
+connection.on('connect', function (err) {
     execteStatement();
 });
 
-function execteStatement()
-{
+function rowToObject(row) {
+    var o = row.reduce(function (obj, cell) {
+        obj[cell.metadata.colName] = cell.value
+        return obj
+    }, {})
+    return o
+}
+
+function execteStatement() {
     request = new Request("select * from agents", function (err, rowCount) {
         if (err) {
             console.info(err);
@@ -24,13 +31,21 @@ function execteStatement()
         else {
             console.info(rowCount + " rows");
         }
-    });
 
+        connection.close();
+    });
+    
     request.on('row', function (columns) {
-        columns.forEach(function (column) {
-            console.info(column.metadata.colName + ":" + column.value);
-        });
+        //columns.forEach(function (column) {
+        //    console.info(column.metadata.colName + ":" + column.value);
+        //});
+        
+        var data = rowToObject(columns);
+        
+        console.info(JSON.stringify(data));
     });
-
+    
+    
+    
     connection.execSql(request);
 }
